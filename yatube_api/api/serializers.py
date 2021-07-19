@@ -21,7 +21,7 @@ class CommentSerializer(serializers.ModelSerializer):
         for comment in comments:
             current_comment = get_object_or_404(Comment, pk=comment.id)
             instance.comments.add(current_comment)
-            return instance
+        return instance
 
 
 class UserSerializer(serializers.ModelSerializer):
