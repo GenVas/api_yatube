@@ -44,11 +44,3 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True
     )
-
-
-class PostComment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.comment} {self.post}'
