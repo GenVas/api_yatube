@@ -4,7 +4,7 @@ from posts.models import Comment, Group, Post
 
 
 class CommentSerializer(serializers.ModelSerializer):
-
+    post = serializers.SlugRelatedField(read_only=True, slug_field='pk')
     author = serializers.SlugRelatedField(
         read_only=True, slug_field='username')
 
@@ -26,4 +26,4 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ('__all__')
